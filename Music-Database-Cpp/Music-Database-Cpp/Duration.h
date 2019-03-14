@@ -1,4 +1,7 @@
 #pragma once
+#include <ostream>
+
+using namespace std;
 
 class Duration
 {
@@ -43,28 +46,15 @@ public:
 		return totalSec;
 	}
 
-	bool operator==(Duration &a, Duration &b)
-	{
-		if (a.getTotalSec() == b.getTotalSec())
-			return true;
-		else
-			return false;
-	}
 
-	bool operator<=(Duration &a, Duration &b)
-	{
-		if (a.getTotalSec() < b.getTotalSec()) return true;
-		else if (a.getTotalSec() == b.getTotalSec()) return true;
-		else
-			return false;
-	}
-
-	bool operator>=(Duration &a, Duration &b)
-	{
-		if (a.getTotalSec() > b.getTotalSec()) return true;
-		else if (a.getTotalSec() > b.getTotalSec()) return true;
-	}
-	//<< is toString
 	//>> splits the input into different stuff and creates a new object with the input
 
 };
+//prototyping operator overloading for the .cpp file
+bool operator==(Duration &a, Duration &b);
+bool operator<=(Duration &a, Duration &b);
+bool operator>=(Duration &a, Duration &b);
+int operator+(Duration &a, Duration &b);
+int operator-(Duration &a, Duration &b);
+ostream& operator<<(ostream& os, Duration &a);
+//istream& operator>> (istream& is, Duration &a);
