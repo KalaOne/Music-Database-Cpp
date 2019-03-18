@@ -1,5 +1,5 @@
 #pragma once
-#include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -7,8 +7,7 @@ class Duration
 {
 private:
 	int ss, mm, hh, totalSec;
-
-
+	
 public:
 	//default constructor, setting time to 0
 	Duration()
@@ -45,10 +44,8 @@ public:
 	{
 		return totalSec;
 	}
-
-
-	//>> splits the input into different stuff and creates a new object with the input
-
+	
+	friend void operator>> (string instr, Duration &a);//friend so it can access Duration privates from outside the class
 };
 //prototyping operator overloading for the .cpp file
 bool operator==(Duration &a, Duration &b);
@@ -57,4 +54,4 @@ bool operator>=(Duration &a, Duration &b);
 int operator+(Duration &a, Duration &b);
 int operator-(Duration &a, Duration &b);
 ostream& operator<<(ostream& os, Duration &a);
-//istream& operator>> (istream& is, Duration &a);
+
