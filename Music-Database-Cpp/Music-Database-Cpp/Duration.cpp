@@ -6,12 +6,29 @@
 #include <iomanip>
 
 
+string Duration::getDuration()
+{
+	int ttlHrs = getTotalSec()/ 3600; //hours from seconds
+	int remainingSec = getTotalSec() % 3600; //seconds - hours
+	int ttlMin = remainingSec / 60; // minutes from remaining sec
+	int seconds = getTotalSec() - (ttlHrs * 3600) - (ttlMin * 60); // seconds left without hours and mins
+
+	//casting ints to string to create one Duration string
+	string hours = to_string(ttlHrs);
+	string minutes = to_string(ttlMin);
+	string sec = to_string(seconds);
+	string totalTime = hours + ":" + minutes + ":" + sec;
+	return totalTime;
+}
+
 bool operator==(Duration &a, Duration &b)
 {
-	if (a.getTotalSec() == b.getTotalSec())
-		return true;
-	else
-		return false;
+	return a.getTotalSec() == b.getTotalSec();
+}
+
+bool operator!=(Duration &a, Duration &b)
+{
+	return a.getTotalSec() != b.getTotalSec();
 }
 
 bool operator<=(Duration &a, Duration &b)
@@ -28,11 +45,23 @@ bool operator>=(Duration &a, Duration &b)
 {
 	if (a.getTotalSec() > b.getTotalSec()) 
 		return true;
-	else if (a.getTotalSec() > b.getTotalSec()) 
+	else if (a.getTotalSec() == b.getTotalSec()) 
 		return true;
 	else
 		return false;
 }
+
+bool operator<(Duration &a, Duration &b)
+{
+	return a.getTotalSec() < b.getTotalSec();
+}
+
+
+bool operator>(Duration &a, Duration &b)
+{
+	return a.getTotalSec() > b.getTotalSec();
+}
+
 
 int operator+(Duration &a, Duration &b)
 {
@@ -48,14 +77,14 @@ ostream& operator<<(ostream& os, Duration &a)
 {
 	if (a.getSeconds() < 10 && a.getMinutes() < 10)
 	{
-		os << setw(2) << a.getHours() << ":" << setw(2) << setfill('0') << a.getMinutes() << ":" << setw(2) << setfill('0') << a.getSeconds();
+		os << a.getHours() << ":" << setw(2) << setfill('0') << a.getMinutes() << ":" << setw(2) << setfill('0') << a.getSeconds();
 	}
 	else if (a.getMinutes() < 10) {
-		os << setw(2) << a.getHours() << ":" << setw(2)<<setfill('0') << a.getMinutes() << ":" << setw(2) << a.getSeconds();
+		os << a.getHours() << ":" << setw(2)<<setfill('0') << a.getMinutes() << ":" << setw(2) << a.getSeconds();
 	}
 	else if (a.getSeconds() < 10)
 	{
-		os << setw(2) << a.getHours() << ":" << setw(2) << a.getMinutes() << ":" << setw(2)<<setfill('0') << a.getSeconds();
+		os << a.getHours() << ":" << setw(2) << a.getMinutes() << ":" << setw(2)<<setfill('0') << a.getSeconds();
 	}
 	
 	return os;
@@ -67,7 +96,11 @@ void operator>> (string instr, Duration &a)
 	char delim = ':';
 	string output;
 	vector<string> duration; //vector to store hh/mm/ss
-
+	//call splitter twice (first for '-' and then for ':')
+	//splitter takes char '-' instead ' - '
+	//vector X = stringSplitter (string, delimiter)
+	//return the vector that has been created
+	//
 	while(getline(input, output, delim))
 	{
 		duration.push_back(output);
@@ -75,4 +108,5 @@ void operator>> (string instr, Duration &a)
 	a.hh = stoi(duration[0]);
 	a.mm = stoi(duration[1]);
 	a.ss = stoi(duration[2]);
+	a.totalSec = ((a.hh * 3600) + (a.mm * 60) + a.ss);
 }
