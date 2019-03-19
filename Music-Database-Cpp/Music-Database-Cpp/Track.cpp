@@ -9,15 +9,16 @@ using namespace std;
 
 ostream& operator<<(ostream& os, Track &a)
 {
-	os << a.getTrack();
+	os << a.getTitle() << " "<< a.getDuration();
 	return os;
 }
 
 void operator>> (string instr, Track &t)
 {
 	istringstream input(instr); //converts the input to istream to use for getline()
-	char delim = '-';
 
+	//for album check if the " : " exists, then use getline on the given delimiter. 
+	char delim = '-';
 	string trackInfo;
 	vector<string> track; //vector to store hh/mm/ss
 	

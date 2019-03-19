@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
@@ -46,9 +47,8 @@ public:
 		return totalSec;
 	}
 
-	
-	
-	friend void operator>> (string instr, Duration &a);//friend so it can access Duration privates from outside the class
+
+	friend istream& operator>> (istream& instr, Duration &a);//friend so it can access Duration privates from outside the class
 	friend string getDuration();
 	string getDuration();
 };

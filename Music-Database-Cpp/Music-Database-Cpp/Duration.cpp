@@ -80,18 +80,21 @@ ostream& operator<<(ostream& os, Duration &a)
 	return os;
 }
 
-void operator>> (string instr, Duration &a)
+istream& operator>> (istream& instr, Duration &a)
 {
-	istringstream input(instr); //converts the input to istream to use for getline()
+	 //converts the input to istream to use for getline()
 	char delim = ':';
 	string output;
 	vector<string> duration; //vector to store hh/mm/ss
-	//call splitter twice (first for '-' and then for ':')
-	//splitter takes char '-' instead ' - '
-	//vector X = stringSplitter (string, delimiter)
-	//return the vector that has been created
+
+	char temp; 
+	instr >> a.hh >> temp >> a.mm >> temp >> a.ss;
+
+	//for album check if the " : " exists, then use getline on the given delimiter. 
 	//
-	while(getline(input, output, delim))
+	
+
+	/*while(getline(instr, output, delim))
 	{
 		if (delim == ':')
 			duration.push_back(output);
@@ -101,5 +104,8 @@ void operator>> (string instr, Duration &a)
 	a.hh = stoi(duration[0]);
 	a.mm = stoi(duration[1]);
 	a.ss = stoi(duration[2]);
+	*/
 	a.totalSec = ((a.hh * 3600) + (a.mm * 60) + a.ss);
+
+	return instr;
 }

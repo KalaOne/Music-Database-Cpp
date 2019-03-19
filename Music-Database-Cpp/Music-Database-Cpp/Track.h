@@ -28,16 +28,11 @@ public:
 		return title;
 	}
 
-	inline Duration getDuration()
+	inline Duration& getDuration()
 	{
 		return duration;
 	}
 
-	inline string getTrack()
-	{
-		string track = title + duration.getDuration();
-		return track;
-	}
 
 	friend void operator>> (string instr, Track &t);
 };
