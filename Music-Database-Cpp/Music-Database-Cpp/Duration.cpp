@@ -93,7 +93,10 @@ void operator>> (string instr, Duration &a)
 	//
 	while(getline(input, output, delim))
 	{
-		duration.push_back(output);
+		if (delim == ':')
+			duration.push_back(output);
+		else
+			cerr << "Error: not expected delimiter" << endl;
 	}
 	a.hh = stoi(duration[0]);
 	a.mm = stoi(duration[1]);

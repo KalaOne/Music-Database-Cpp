@@ -38,5 +38,7 @@ public:
 		string track = title + duration.getDuration();
 		return track;
 	}
+
+	friend void operator>> (string instr, Track &t);
 };
 ostream& operator<<(ostream& os, Track &a);
