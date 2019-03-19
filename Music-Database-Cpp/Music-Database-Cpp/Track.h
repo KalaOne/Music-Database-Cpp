@@ -38,17 +38,5 @@ public:
 		string track = title + duration.getDuration();
 		return track;
 	}
-
-
-
 };
-////prototyping operator overloading for the .cpp file
-//bool operator==(Duration &a, Duration &b);
-//bool operator!=(Duration &a, Duration &b);
-//bool operator<=(Duration &a, Duration &b);
-//bool operator>=(Duration &a, Duration &b);
-//bool operator<(Duration &a, Duration &b);
-//bool operator>(Duration &a, Duration &b);
-//int operator+(Duration &a, Duration &b);
-//int operator-(Duration &a, Duration &b);
-//ostream& operator<<(ostream& os, Duration &a); & os, Duration &a);
+ostream& operator<<(ostream& os, Track &a);

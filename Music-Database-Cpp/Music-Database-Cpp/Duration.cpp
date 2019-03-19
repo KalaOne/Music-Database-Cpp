@@ -33,22 +33,12 @@ bool operator!=(Duration &a, Duration &b)
 
 bool operator<=(Duration &a, Duration &b)
 {
-	if (a.getTotalSec() < b.getTotalSec()) 
-		return true;
-	else if (a.getTotalSec() == b.getTotalSec()) 
-		return true;
-	else
-		return false;
+	return !(a > b);
 }
 
 bool operator>=(Duration &a, Duration &b)
 {
-	if (a.getTotalSec() > b.getTotalSec()) 
-		return true;
-	else if (a.getTotalSec() == b.getTotalSec()) 
-		return true;
-	else
-		return false;
+	return !(a < b);
 }
 
 bool operator<(Duration &a, Duration &b)
