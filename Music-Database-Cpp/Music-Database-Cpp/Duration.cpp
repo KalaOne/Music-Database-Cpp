@@ -80,18 +80,16 @@ ostream& operator<<(ostream& os, Duration &a)
 	return os;
 }
 
-istream& operator>> (istream& instr, Duration &a)
+istream& operator>> (istream& instr, Duration &d)
 {
-	 //converts the input to istream to use for getline()
 	char delim = ':';
 	string output;
 	vector<string> duration; //vector to store hh/mm/ss
 
 	char temp; 
-	instr >> a.hh >> temp >> a.mm >> temp >> a.ss;
+	instr >> d.hh >> temp >> d.mm >> temp >> d.ss;
 
 	//for album check if the " : " exists, then use getline on the given delimiter. 
-	//
 	
 
 	/*while(getline(instr, output, delim))
@@ -105,7 +103,7 @@ istream& operator>> (istream& instr, Duration &a)
 	a.mm = stoi(duration[1]);
 	a.ss = stoi(duration[2]);
 	*/
-	a.totalSec = ((a.hh * 3600) + (a.mm * 60) + a.ss);
+	d.totalSec = ((d.hh * 3600) + (d.mm * 60) + d.ss);
 
 	return instr;
 }

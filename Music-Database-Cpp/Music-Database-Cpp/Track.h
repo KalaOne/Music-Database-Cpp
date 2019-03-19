@@ -34,6 +34,6 @@ public:
 	}
 
 
-	friend void operator>> (string instr, Track &t);
+	friend istream& operator>> (istream& instr, Track &t);
 };
 ostream& operator<<(ostream& os, Track &a);
