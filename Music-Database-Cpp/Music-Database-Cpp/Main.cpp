@@ -18,8 +18,9 @@ int main(int argc, char* argv) {
 	//cout << dur.getTotalSec()<< endl;
 	//cout << (dur>dur2) << endl;
 	//cout << dur + dur2 << endl;
-	//cout << t << endl;
+	cout << "Enter track type of input" << endl;
 	cin >> t2;
 	cout << t2 << endl;
+	
 		return 0;
 }

@@ -76,6 +76,10 @@ ostream& operator<<(ostream& os, Duration &a)
 	{
 		os << a.getHours() << ":" << setw(2) << a.getMinutes() << ":" << setw(2)<<setfill('0') << a.getSeconds();
 	}
+	else
+	{
+		os << a.getHours() << ":" << setw(2) << a.getMinutes() << ":" << a.getSeconds();
+	}
 	
 	return os;
 }
@@ -92,6 +96,9 @@ istream& operator>> (istream& instr, Duration &d)
 	if (temp == ':') //check if the delimiter is ":"
 	{
 		cout << "correct date format." << endl;
+		/*d.hh = hrs;
+		d.mm = min;
+		d.ss = sec;*/
 		d = Duration(hrs, min, sec);
 	}
 	else
