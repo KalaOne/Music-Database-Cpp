@@ -82,15 +82,20 @@ ostream& operator<<(ostream& os, Duration &a)
 
 istream& operator>> (istream& instr, Duration &d)
 {
-	char delim = ':';
-	string output;
-	vector<string> duration; //vector to store hh/mm/ss
+	//char delim = ':';
+	//string output;
+	//vector<string> duration; //vector to store hh/mm/ss
 
-	char temp; 
-	instr >> d.hh >> temp >> d.mm >> temp >> d.ss;
-
-	//for album check if the " : " exists, then use getline on the given delimiter. 
-	
+	char temp;
+	int hrs, min, sec;
+	instr >> hrs >> temp >> min>> temp >> sec;
+	if (temp == ':') //check if the delimiter is ":"
+	{
+		cout << "correct date format." << endl;
+		d = Duration(hrs, min, sec);
+	}
+	else
+		cerr << "Wrong delimiter between integers." << endl;
 
 	/*while(getline(instr, output, delim))
 	{

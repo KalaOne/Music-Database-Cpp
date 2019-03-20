@@ -29,8 +29,17 @@ istream& operator>> (istream& instr, Track &t)
 	//vector X = stringSplitter (string, delimiter)
 	//return the vector that has been created
 	/*t.title = track[1];*/
-	char delim;
-	instr >> t.duration >>delim >> t.title;
+	string delim;
+	Duration d;
+	string name;
+//-------------------------- Add error checking for multiple lines - while loop to get inputs until correct format
+	instr >> d >>delim >> name;
+	if (delim == "-") {
+		cout << "success!" << endl;
+		t= Track(name, d);
+	}
+	else
+		cerr << "The delimiter between duration and title is different than expected..."<<endl;
 	return instr;
 	
 }
