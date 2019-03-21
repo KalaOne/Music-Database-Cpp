@@ -26,8 +26,7 @@ public:
 		duration = dur;
 	}
 
-	
-	inline string getAlbum()
+	inline string getAlbumInfo()
 	{
 		return artistName + " " + albumTitle;
 	}
@@ -37,4 +36,10 @@ public:
 		album.push_back(t);
 	}
 
+	inline vector<Track> getAllTracksVector()
+	{
+		return album;
+	}
 };
+
+ostream& operator<<(ostream& os, Album &a);

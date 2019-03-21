@@ -16,4 +16,11 @@ public:
 	{
 		collection.push_back(a);
 	}
+
+	inline vector<Album> getCollectionVector()
+	{
+		return collection;
+	}
 };
+
+ostream& operator<<(ostream& os, Collection &d);
