@@ -95,7 +95,7 @@ istream& operator>> (istream& instr, Duration &d)
 	instr >> hrs >> temp >> min>> temp >> sec;
 	if (temp == ':') //check if the delimiter is ":"
 	{
-		cout << "correct date format." << endl;
+		//cout << "correct date format." << endl;
 		/*d.hh = hrs;
 		d.mm = min;
 		d.ss = sec;*/

@@ -19,27 +19,29 @@ public:
 		albumTitle = "Unkown";
 	}
 
-	Album(string artName, string albumName, Duration dur)
+	Album(string artName, string albumName)
 	{
 		artistName = artName;
 		albumTitle = albumName;
-		duration = dur;
 	}
 
-	inline string getAlbumInfo()
-	{
-		return artistName + " " + albumTitle;
-	}
 	//not sure about the refference.
 	inline void addTrackToAlbum(Track &t)
 	{
 		album.push_back(t);
 	}
 
+	inline string getAlbumInfo()
+	{
+		return artistName + " : " + albumTitle;
+	}
+
 	inline vector<Track> getAllTracksVector()
 	{
 		return album;
 	}
+
+	friend istream& operator>> (istream& instr, Album &a);
 };
 
 ostream& operator<<(ostream& os, Album &a);

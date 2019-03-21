@@ -21,6 +21,8 @@ public:
 	{
 		return collection;
 	}
+
+	//friend ifstream& operator>>(ifstream& in, Collection& c);
 };
 
 ostream& operator<<(ostream& os, Collection &d);
