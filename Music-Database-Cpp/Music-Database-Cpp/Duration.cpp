@@ -86,35 +86,17 @@ ostream& operator<<(ostream& os, Duration &a)
 
 istream& operator>> (istream& instr, Duration &d)
 {
-	//char delim = ':';
-	//string output;
-	//vector<string> duration; //vector to store hh/mm/ss
-
 	char temp;
 	int hrs, min, sec;
 	instr >> hrs >> temp >> min>> temp >> sec;
 	if (temp == ':') //check if the delimiter is ":"
 	{
 		//cout << "correct date format." << endl;
-		/*d.hh = hrs;
-		d.mm = min;
-		d.ss = sec;*/
 		d = Duration(hrs, min, sec);
 	}
 	else
 		cerr << "Wrong delimiter between integers." << endl;
 
-	/*while(getline(instr, output, delim))
-	{
-		if (delim == ':')
-			duration.push_back(output);
-		else
-			cerr << "Error: not expected delimiter" << endl;
-	}
-	a.hh = stoi(duration[0]);
-	a.mm = stoi(duration[1]);
-	a.ss = stoi(duration[2]);
-	*/
 	d.totalSec = ((d.hh * 3600) + (d.mm * 60) + d.ss);
 
 	return instr;

@@ -46,8 +46,6 @@ int main(int argc, char* argv) {
 	{
 		cout << "Unable to open file..." << endl;
 	}
-	/*cout << "Enter ma motha(track)" << endl;
-	cin >> t4;
-	cout << t4 << endl;
-	*/return 0;
+	
+	return 0;
 }
