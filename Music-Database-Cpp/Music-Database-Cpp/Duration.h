@@ -23,11 +23,13 @@ public:
 	//Constructor setting time to given arguments
 	Duration(int hrs, int min, int sec)
 	{
-		hh = hrs;
-		mm = min;
-		ss = sec;
+		int remainMin;
+		totalSec = ((hrs * 3600) + (min * 60) + sec);
+		hh = totalSec / 3600;
+		remainMin = totalSec - (hh * 3600);
+		mm = remainMin / 60;
+		ss = remainMin - (mm * 60);
 
-		totalSec = ((hh * 3600) + (mm * 60) + ss);
 	}
 
 	inline int getSeconds()
@@ -50,7 +52,6 @@ public:
 
 	friend istream& operator>> (istream& instr, Duration &a);//friend so it can access Duration privates from outside the class
 	friend string getDuration();
-	string toString();
 };
 //prototyping operator overloading for the .cpp file
 bool operator==(Duration &a, Duration &b);

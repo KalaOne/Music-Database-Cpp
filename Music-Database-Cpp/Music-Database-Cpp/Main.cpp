@@ -16,7 +16,7 @@ int main(int argc, char* argv) {
 	Track t4;
 	//Album alb;
 	//Album alb2;
-	//Collection col;
+	Collection col;
 	////cin >> dur;
 	////cout << dur << endl;
 	////cout << dur.getTotalSec()<< endl;
@@ -34,21 +34,29 @@ int main(int argc, char* argv) {
 	//col.addAlbumToCollection(alb2);
 	////cout << col << endl;
 	//cout << "Enter track: " << endl;
-	//cin >> t4;
-	//cout << t4 << endl;
+	cin >> t4;
+	cout << t4 << endl;
 	Album alb3;
+	Album alb4;
 	ifstream file;
-	file.open("album.txt", ios::in);
-	if(file.is_open())
-	{
-		//cout << "File open successfully." << endl;
-		file >> alb3;
-		cout << alb3 << endl;
-	}
-	else
-	{
-		cout << "Unable to open file..." << endl;
-	}
-	
+	file.open("album.txt");
+	//if(file.is_open())
+	//{
+	//	//cout << "File open successfully." << endl;
+	//	
+	//	//cout << alb3 << endl;
+	//	//cout <<"t"<< file.rdbuf() << endl;
+	//	//file.clear();
+	//	//file >> alb4;
+	//	//cout << alb4 << endl;
+	//	
+	//	file >> col;
+	//	cout << col << endl;
+	//}
+	//else
+	//{
+	//	cout << "Unable to open file..." << endl;
+	//}
+	//
 	return 0;
 }

@@ -12,10 +12,18 @@ ostream& operator<<(ostream& os, Collection &c)
 	return os;
 }
 
-ifstream& operator>>(ifstream& in, Collection& c)
+istream& operator>>(istream& in, Collection& c)
 {
-	string albums;
+	Album album;
 	//Specify how its read from the file.
-	while(getline(in, albums){}
-
+	while(!in.eof())
+	{
+		in >> album;
+		if (in.eof())
+		{
+			break;
+		}
+		in.clear();
+	}
+	return in;
 }

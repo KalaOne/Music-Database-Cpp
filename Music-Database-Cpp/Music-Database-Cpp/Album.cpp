@@ -7,8 +7,6 @@
 #include <iterator>
 
 
-//for album check if the " : " exists, then use getline on the given delimiter. 
-
 ostream& operator<<(ostream& os, Album &a)
 {
 	vector<Track> v = a.getAllTracksVector();

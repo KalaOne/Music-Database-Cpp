@@ -11,7 +11,6 @@ class Collection
 private:
 	vector<Album> collection;
 public:
-
 	inline void addAlbumToCollection(Album &a)
 	{
 		collection.push_back(a);
@@ -22,7 +21,7 @@ public:
 		return collection;
 	}
 
-	//friend ifstream& operator>>(ifstream& in, Collection& c);
+	friend istream& operator>>(istream& in, Collection& c);
 };
 
 ostream& operator<<(ostream& os, Collection &d);
