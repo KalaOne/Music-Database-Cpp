@@ -19,6 +19,7 @@ istream& operator>>(istream& in, Collection& c)
 	while(!in.eof())
 	{
 		in >> album;
+		c.addAlbumToCollection(album);
 		if (in.eof())
 		{
 			break;
