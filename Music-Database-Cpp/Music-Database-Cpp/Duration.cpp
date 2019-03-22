@@ -6,21 +6,6 @@
 #include <iomanip>
 
 
-string Duration::getDuration()
-{
-	int ttlHrs = getTotalSec()/ 3600; //hours from seconds
-	int remainingSec = getTotalSec() % 3600; //seconds - hours
-	int ttlMin = remainingSec / 60; // minutes from remaining sec
-	int seconds = getTotalSec() - (ttlHrs * 3600) - (ttlMin * 60); // seconds left without hours and mins
-
-	//casting ints to string to create one Duration string
-	string hours = to_string(ttlHrs);
-	string minutes = to_string(ttlMin);
-	string sec = to_string(seconds);
-	string totalTime = hours + ":" + minutes + ":" + sec;
-	return totalTime;
-}
-
 bool operator==(Duration &a, Duration &b)
 {
 	return a.getTotalSec() == b.getTotalSec();
@@ -78,7 +63,7 @@ ostream& operator<<(ostream& os, Duration &a)
 	}
 	else
 	{
-		os << a.getHours() << ":" << setw(2) << a.getMinutes() << ":" << a.getSeconds();
+		os << a.getHours() << ":" << a.getMinutes() << ":" << a.getSeconds();
 	}
 	
 	return os;
@@ -94,8 +79,8 @@ istream& operator>> (istream& instr, Duration &d)
 		//cout << "correct date format." << endl;
 		d = Duration(hrs, min, sec);
 	}
-	else
-		cerr << "Wrong delimiter between integers." << endl;
+	/*else
+		cerr << "Wrong delimiter between integers." << endl;*/
 
 	d.totalSec = ((d.hh * 3600) + (d.mm * 60) + d.ss);
 

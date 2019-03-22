@@ -12,8 +12,10 @@ ostream& operator<<(ostream& os, Collection &c)
 	return os;
 }
 
-//ifstream& operator>>(ifstream& in, Collection& c)
-//{
-//	//Specify how its read from the file.
-	//while(getline(in, #filetoreadinto){}
-//}
+ifstream& operator>>(ifstream& in, Collection& c)
+{
+	string albums;
+	//Specify how its read from the file.
+	while(getline(in, albums){}
+
+}

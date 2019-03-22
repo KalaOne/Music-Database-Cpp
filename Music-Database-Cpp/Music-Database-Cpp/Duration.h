@@ -50,7 +50,7 @@ public:
 
 	friend istream& operator>> (istream& instr, Duration &a);//friend so it can access Duration privates from outside the class
 	friend string getDuration();
-	string getDuration();
+	string toString();
 };
 //prototyping operator overloading for the .cpp file
 bool operator==(Duration &a, Duration &b);

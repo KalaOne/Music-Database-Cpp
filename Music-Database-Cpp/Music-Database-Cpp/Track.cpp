@@ -8,7 +8,7 @@ using namespace std;
 
 ostream& operator<<(ostream& os, Track &a)
 {
-	os <<left<<a.getTitle() << "\t "<< right<<a.getDuration();
+	os <<a.getTitle() << "\t "<<a.getDuration();
 	return os;
 }
 
@@ -28,8 +28,7 @@ istream& operator>> (istream& instr, Track &t)
 		//cout << "success!" << endl;
 		t = Track(name, d);
 	}
-	else
-		cerr << "Unexpected delimiter for Track..."<<endl;
+	
 	return instr;
 	
 }

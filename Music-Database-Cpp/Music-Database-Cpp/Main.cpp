@@ -13,7 +13,7 @@ int main(int argc, char* argv) {
 	//Track t("First Track", dur);
 	//Track t2("Second Track",dur2);
 	//Track t3("Another one", dur3);
-	//Track t4;
+	Track t4;
 	//Album alb;
 	//Album alb2;
 	//Collection col;
@@ -33,6 +33,9 @@ int main(int argc, char* argv) {
 	//col.addAlbumToCollection(alb);
 	//col.addAlbumToCollection(alb2);
 	////cout << col << endl;
+	//cout << "Enter track: " << endl;
+	//cin >> t4;
+	//cout << t4 << endl;
 	Album alb3;
 	ifstream file;
 	file.open("album.txt", ios::in);
