@@ -16,7 +16,7 @@ public:
 		collection.push_back(a);
 	}
 
-	inline vector<Album> getCollectionVector()
+	inline vector<Album>& getCollectionVector()
 	{
 		return collection;
 	}
