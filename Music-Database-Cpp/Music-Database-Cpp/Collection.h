@@ -11,7 +11,7 @@ class Collection
 private:
 	vector<Album> collection;
 public:
-	inline void addAlbumToCollection(Album &a)
+	inline void addAlbumToCollection(const Album &a)
 	{
 		collection.push_back(a);
 	}
@@ -22,6 +22,8 @@ public:
 	}
 
 	friend istream& operator>>(istream& in, Collection& c);
+	struct sortFunctAsc;
+	void sortAscending();
 };
 
 ostream& operator<<(ostream& os, Collection &d);

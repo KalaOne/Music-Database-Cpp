@@ -6,7 +6,7 @@
 
 using namespace std;
 
-ostream& operator<<(ostream& os, Track &a)
+ostream& operator<<(ostream& os, const Track &a)
 {
 	os <<a.getTitle() << "\t "<<a.getDuration();
 	return os;

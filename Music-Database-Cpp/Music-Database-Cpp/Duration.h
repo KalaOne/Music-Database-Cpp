@@ -21,7 +21,7 @@ public:
 		totalSec = ((hh * 3600) + (mm * 60) + ss);
 	}
 	//Constructor setting time to given arguments
-	Duration(int hrs, int min, int sec)
+	Duration(const int hrs,const int min, const int sec)
 	{
 		int remainMin;
 		totalSec = ((hrs * 3600) + (min * 60) + sec);
@@ -32,35 +32,39 @@ public:
 
 	}
 
-	inline int getSeconds()
+	inline int getSeconds() const
 	{	
 		return ss;
 	}
-	inline int getMinutes()
+	inline int getMinutes() const
 	{
 		return mm;
 	}
-	inline int getHours()
+	inline int getHours() const
 	{
 		return hh;
 	}
-	inline int getTotalSec()
+	inline int getTotalSec() const
 	{
 		return totalSec;
 	}
 
+	inline void setTotalSec(const int hrs,const int min, const int sec)
+	{
+		totalSec = ((hrs * 3600) + (min * 60) + sec);
+	}
 
-	friend istream& operator>> (istream& instr, Duration &a);//friend so it can access Duration privates from outside the class
+	friend istream& operator>> (istream& instr,Duration &a);//friend so it can access Duration privates from outside the class
 	friend string getDuration();
 };
 //prototyping operator overloading for the .cpp file
-bool operator==(Duration &a, Duration &b);
-bool operator!=(Duration &a, Duration &b);
-bool operator<=(Duration &a, Duration &b);
-bool operator>=(Duration &a, Duration &b);
-bool operator<(Duration &a, Duration &b);
-bool operator>(Duration &a, Duration &b);
-int operator+(Duration &a, Duration &b);
-int operator-(Duration &a, Duration &b);
-ostream& operator<<(ostream& os, Duration &a);
+bool operator==(const Duration &a, const Duration &b);
+bool operator!=(const Duration &a, const Duration &b);
+bool operator<=(const Duration &a, const Duration &b);
+bool operator>=(const Duration &a, const Duration &b);
+bool operator<(const Duration &a, const Duration &b);
+bool operator>(const Duration &a, const Duration &b);
+int operator+(const Duration &a, const Duration &b);
+int operator-(const Duration &a, const Duration &b);
+ostream& operator<<(ostream& os,const Duration &a);
 

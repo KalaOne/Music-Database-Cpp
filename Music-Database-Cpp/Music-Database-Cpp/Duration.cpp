@@ -6,49 +6,49 @@
 #include <iomanip>
 
 
-bool operator==(Duration &a, Duration &b)
+bool operator==(const Duration &a, const  Duration &b)
 {
 	return a.getTotalSec() == b.getTotalSec();
 }
 
-bool operator!=(Duration &a, Duration &b)
+bool operator!=(const Duration &a, const  Duration &b)
 {
 	return a.getTotalSec() != b.getTotalSec();
 }
 
-bool operator<=(Duration &a, Duration &b)
+bool operator<=(const Duration &a, const  Duration &b)
 {
 	return !(a > b);
 }
 
-bool operator>=(Duration &a, Duration &b)
+bool operator>=(const Duration &a, const  Duration &b)
 {
 	return !(a < b);
 }
 
-bool operator<(Duration &a, Duration &b)
+bool operator<(const Duration &a, const  Duration &b)
 {
 	return a.getTotalSec() < b.getTotalSec();
 }
 
 
-bool operator>(Duration &a, Duration &b)
+bool operator>(const Duration &a, const  Duration &b)
 {
 	return a.getTotalSec() > b.getTotalSec();
 }
 
 
-int operator+(Duration &a, Duration &b)
+int operator+(const Duration &a, const  Duration &b)
 {
 	return a.getTotalSec() + b.getTotalSec();
 }
 
-int operator-(Duration &a, Duration &b)
+int operator-(const Duration &a, const  Duration &b)
 {
 	return a.getTotalSec() - b.getTotalSec();
 }
 
-ostream& operator<<(ostream& os, Duration &a)
+ostream& operator<<(ostream& os,const Duration &a)
 {
 	if (a.getSeconds() < 10 && a.getMinutes() < 10)
 	{
@@ -82,7 +82,7 @@ istream& operator>> (istream& instr, Duration &d)
 	/*else
 		cerr << "Wrong delimiter between integers." << endl;*/
 
-	d.totalSec = ((d.hh * 3600) + (d.mm * 60) + d.ss);
+	d.setTotalSec(d.getHours(),d.getMinutes(), d.getSeconds());
 
 	return instr;
 }

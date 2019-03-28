@@ -2,6 +2,7 @@
 #include "Collection.h"
 #include <sstream>
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -38,25 +39,33 @@ int main(int argc, char* argv) {
 	cout << t4 << endl;
 	Album alb3;
 	Album alb4;*/
-	ifstream file;
-	file.open("album.txt");
-	if(file.is_open())
-	{
-		//cout << "File open successfully." << endl;
-		
-		//cout << alb3 << endl;
-		//cout <<"t"<< file.rdbuf() << endl;
-		//file.clear();
-		//file >> alb4;
-		//cout << alb4 << endl;
-		
-		file >> collect;
-		cout << collect << endl;
-	}
-	else
-	{
-		cout << "Unable to open file..." << endl;
-	}
-	
+//ifstream file;
+//file.open("album.txt");
+//if(file.is_open())
+//{
+//	//cout << "File open successfully." << endl;
+//	
+//	//cout << alb3 << endl;
+//	//cout <<"t"<< file.rdbuf() << endl;
+//	//file.clear();
+//	//file >> alb4;
+//	//cout << alb4 << endl;
+//	
+//	file >> collect;
+//	cout << collect << endl;
+//	cout << "Sorting it beibe....." << endl;
+//	cout << "----------------------------------------------------------" << endl;
+//	sort(collect.getCollectionVector().begin(), collect.getCollectionVector().end());
+//	cout << collect << endl;
+//}
+//else
+//{
+//	cout << "Unable to open file..." << endl;
+//}
+//
+	Duration dur;
+	cin >> dur;
+	cout << dur.getTotalSec() << endl;
+	cout << dur << endl;
 	return 0;
 }

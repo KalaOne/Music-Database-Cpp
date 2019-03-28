@@ -23,17 +23,17 @@ public:
 		duration = dur;
 	}
 
-	inline string getTitle()
+	inline string getTitle() const
 	{
 		return title;
 	}
 
-	inline Duration& getDuration()
+	inline Duration getDuration() const
 	{
 		return duration;
 	}
 
 
-	friend istream& operator>> (istream& instr, Track &t);
+	friend istream& operator>> (istream& instr,Track &t);
 };
-ostream& operator<<(ostream& os, Track &a);
+ostream& operator<<(ostream& os, const Track &a);

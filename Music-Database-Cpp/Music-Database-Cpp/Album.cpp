@@ -19,7 +19,7 @@ ostream& operator<<(ostream& os, Album &a)
 	return os;
 }
 
-istream& operator>> (istream& instr, Album &a)
+istream& operator>> (istream& instr,Album &a)
 {
 	vector<string> v;
 	string album;
