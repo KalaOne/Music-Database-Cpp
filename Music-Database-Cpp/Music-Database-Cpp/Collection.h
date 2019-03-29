@@ -22,8 +22,8 @@ public:
 	}
 
 	friend istream& operator>>(istream& in, Collection& c);
-	struct sortFunctAsc;
-	void sortAscending();
+	Duration getArtistTotalDuration(const string& artist);
+
 };
 
 ostream& operator<<(ostream& os, Collection &d);

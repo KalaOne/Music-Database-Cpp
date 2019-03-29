@@ -23,13 +23,11 @@ public:
 	//Constructor setting time to given arguments
 	Duration(const int hrs,const int min, const int sec)
 	{
-		int remainMin;
 		totalSec = ((hrs * 3600) + (min * 60) + sec);
 		hh = totalSec / 3600;
-		remainMin = totalSec - (hh * 3600);
+		int remainMin = totalSec - (hh * 3600);
 		mm = remainMin / 60;
 		ss = remainMin - (mm * 60);
-
 	}
 
 	inline int getSeconds() const
@@ -48,6 +46,15 @@ public:
 	{
 		return totalSec;
 	}
+	//Adds duration to the current duration
+	inline void addDuration(const Duration& dur)
+	{
+		this->hh += dur.getHours();
+		this->mm += dur.getMinutes();
+		this->ss += dur.getSeconds();
+		setTotalSec(this->hh, this->mm, this->ss);
+
+	}
 
 	inline void setTotalSec(const int hrs,const int min, const int sec)
 	{
@@ -55,7 +62,6 @@ public:
 	}
 
 	friend istream& operator>> (istream& instr,Duration &a);//friend so it can access Duration privates from outside the class
-	friend string getDuration();
 };
 //prototyping operator overloading for the .cpp file
 bool operator==(const Duration &a, const Duration &b);

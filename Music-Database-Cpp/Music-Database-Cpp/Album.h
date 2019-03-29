@@ -9,7 +9,7 @@ class Album
 private:
 	string artistName;
 	string albumTitle;
-	Duration duration;
+	Duration albumDuration;
 	vector<Track> album;
 
 public:
@@ -41,7 +41,6 @@ public:
 		return album;
 	}
 
-
 	inline string getArtistName() const
 	{
 		return artistName;
@@ -50,6 +49,15 @@ public:
 	inline string getAlbumName() const
 	{
 		return albumTitle;
+	}
+//Nick said that sizeof() returns the number of bytes of parameter
+	inline Duration getTotalDuration()
+	{
+		for(int i = 0; i < album.size(); i++)
+		{
+			albumDuration.addDuration(album[i].getDuration());
+		}
+		return albumDuration;
 	}
 	//less than operator overload - used for sorting function
 	// will sort in ascending Artist -> Album

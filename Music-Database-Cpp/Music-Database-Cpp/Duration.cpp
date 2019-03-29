@@ -6,6 +6,8 @@
 #include <iomanip>
 
 
+
+
 bool operator==(const Duration &a, const  Duration &b)
 {
 	return a.getTotalSec() == b.getTotalSec();

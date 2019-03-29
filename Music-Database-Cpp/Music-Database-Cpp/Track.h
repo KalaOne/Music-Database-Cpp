@@ -28,7 +28,7 @@ public:
 		return title;
 	}
 
-	inline Duration getDuration() const
+	inline const Duration getDuration() const
 	{
 		return duration;
 	}

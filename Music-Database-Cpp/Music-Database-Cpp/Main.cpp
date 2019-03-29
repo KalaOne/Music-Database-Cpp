@@ -43,25 +43,21 @@ int main(int argc, char* argv) {
 	file.open("album.txt");
 	if (file.is_open())
 	{
-		//cout << "File open successfully." << endl;
-
+		cout << "File read successfully." << endl;
+		cout << "-------------------------------------------------------------------" << endl;
 		//cout << alb3 << endl;
 		//cout <<"t"<< file.rdbuf() << endl;
 		//file.clear();
 		//file >> alb4;
 		//cout << alb4 << endl;
-
 		file >> collect;
-		cout << collect << endl;
-		cout << "Sorting it beibe....." << endl;
-		cout << "----------------------------------------------------------" << endl;
-
-		/*vector<Album>& test = collect.getCollectionVector();*/
-
 		sort(collect.getCollectionVector().begin(), collect.getCollectionVector().end());
-
-		
 		cout << collect << endl;
+		cout << "3. Total play time of 'Pink Floyd'" << endl;
+		cout << collect.getArtistTotalDuration("Pink Floyd ") << endl;
+//Sort out seconds distribution because it prints a mess.
+//IF TIME PERMITS : 
+//Also try to get rid of the " " spaces before and after strings. IF TIME PERMITS.
 	}
 	else
 	{
