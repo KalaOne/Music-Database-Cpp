@@ -6,6 +6,11 @@
 
 using namespace std;
 
+bool operator>(const Duration& a, const int b)
+{
+	return a.getTotalSec() > b;
+}
+
 ostream& operator<<(ostream& os, const Track &a)
 {
 	os <<a.getTitle() << "\t "<<a.getDuration();

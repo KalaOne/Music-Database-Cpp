@@ -36,4 +36,5 @@ public:
 
 	friend istream& operator>> (istream& instr,Track &t);
 };
+bool operator>(const Duration& a, const int b);
 ostream& operator<<(ostream& os, const Track &a);

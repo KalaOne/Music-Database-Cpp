@@ -24,7 +24,9 @@ public:
 	friend istream& operator>>(istream& in, Collection& c);
 	Duration getArtistTotalDuration(const string& artist);
 	string albumWithMostTracks() const;
+	string longestTrackInfo() const;
 
 };
 
+string operator+(const string& cs, const Duration& rhs);
 ostream& operator<<(ostream& os, Collection &d);

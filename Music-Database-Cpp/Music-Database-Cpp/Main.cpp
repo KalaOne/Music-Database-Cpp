@@ -50,22 +50,25 @@ int main(int argc, char* argv) {
 		//file.clear();
 		//file >> alb4;
 		//cout << alb4 << endl;
+		cout << "2. Display in alphabetical order" << endl;
 		file >> collect;
 		sort(collect.getCollectionVector().begin(), collect.getCollectionVector().end());
 		cout << collect << endl;
 		cout << "3. Total play time of 'Pink Floyd'" << endl;
 		cout << collect.getArtistTotalDuration("Pink Floyd ") << endl;
+		cout << "-------------------------------------------------------------------" << endl;
 		cout << "4. Album with largest number of tracks" << endl;
 		cout << collect.albumWithMostTracks() << endl;
-//Sort out seconds distribution because it prints a mess.
+		cout << "-------------------------------------------------------------------" << endl;
+		cout << "5. Longest track in the collection" << endl;
+		cout << collect.longestTrackInfo()<< endl;
+
 //IF TIME PERMITS : 
-//Also try to get rid of the " " spaces before and after strings. IF TIME PERMITS.
+//Also try to get rid of the " " spaces before and after strings.
 	}
 	else
 	{
 		cout << "Unable to open file..." << endl;
 	}
-	
-
 	return 0;
 }

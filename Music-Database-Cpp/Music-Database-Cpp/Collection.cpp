@@ -30,6 +30,33 @@ string Collection::albumWithMostTracks() const
 	return album.getAlbumInfo();
 }
 
+
+
+string Collection::longestTrackInfo() const
+{
+	int minimum = -1;
+	Track longestTrack;
+	//loop through albums in collection
+	for(Album alb : collection)
+	{
+		//loop through tracks in each album
+		for(Track thisTrack : alb.getAllTracksVector())
+		{
+			if(thisTrack.getDuration() > minimum)
+			{
+				longestTrack = thisTrack;
+				minimum = thisTrack.getDuration().getTotalSec();
+			}
+		}
+	}
+	return longestTrack.getTitle() + " " + longestTrack.getDuration();
+}
+
+string operator+(const string& cs, const Duration& rhs)
+{
+	return cs + " " + to_string(rhs.getHours()) + ":" + to_string(rhs.getMinutes()) + ":" + to_string(rhs.getSeconds());
+}
+
 ostream& operator<<(ostream& os, Collection &c)
 {
 	vector<Album> v = c.getCollectionVector();
