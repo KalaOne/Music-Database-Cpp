@@ -50,6 +50,11 @@ int operator-(const Duration &a, const  Duration &b)
 	return a.getTotalSec() - b.getTotalSec();
 }
 
+Duration::operator int() const{
+	int totalSec = ((hh * 3600) + (mm * 60) + ss);
+	return totalSec;
+}
+
 ostream& operator<<(ostream& os,const Duration &a)
 {
 	if (a.getSeconds() < 10 && a.getMinutes() < 10)

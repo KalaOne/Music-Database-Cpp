@@ -11,6 +11,7 @@ private:
 	int ss, mm, hh, totalSec;
 	
 public:
+	operator int() const;
 	//default constructor, setting time to 0
 	Duration()
 	{
@@ -28,6 +29,15 @@ public:
 		int remainMin = totalSec - (hh * 3600);
 		mm = remainMin / 60;
 		ss = remainMin - (mm * 60);
+	}
+	Duration(const int seconds)
+	{
+		totalSec = seconds;
+		hh = totalSec / 3600;
+		totalSec %= 3600;
+		mm = totalSec / 60;
+		totalSec %= 60;
+		ss = totalSec;
 	}
 
 	inline int getSeconds() const

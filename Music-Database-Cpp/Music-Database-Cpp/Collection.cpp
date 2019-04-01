@@ -4,14 +4,15 @@
 
 Duration Collection::getArtistTotalDuration(const string& artist)
 {
-	Duration totalTime;
+	int totalSeconds = 0;
 	for(int i = 0; i < collection.size();i++)
 	{
 		if(collection[i].getArtistName().compare(artist) == 0)
 		{
-			totalTime.addDuration(collection[i].getTotalDuration());
+			totalSeconds += collection[i].getTotalDuration();
 		}
 	}
+	Duration totalTime = Duration(totalSeconds);
 	return totalTime;
 }
 
