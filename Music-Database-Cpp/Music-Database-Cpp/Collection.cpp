@@ -16,6 +16,20 @@ Duration Collection::getArtistTotalDuration(const string& artist)
 	return totalTime;
 }
 
+string Collection::albumWithMostTracks() const
+{
+	int trackNum = 0;
+	Album album;
+	for (int i = 0; i < collection.size(); i++)
+	{
+		if (collection[i].getAllTracksVector().size() > trackNum){			
+			trackNum = collection[i].getAllTracksVector().size();
+			album = collection[i];
+		}
+	}
+	return album.getAlbumInfo();
+}
+
 ostream& operator<<(ostream& os, Collection &c)
 {
 	vector<Album> v = c.getCollectionVector();

@@ -23,6 +23,7 @@ public:
 
 	friend istream& operator>>(istream& in, Collection& c);
 	Duration getArtistTotalDuration(const string& artist);
+	string albumWithMostTracks() const;
 
 };
 

@@ -55,6 +55,8 @@ int main(int argc, char* argv) {
 		cout << collect << endl;
 		cout << "3. Total play time of 'Pink Floyd'" << endl;
 		cout << collect.getArtistTotalDuration("Pink Floyd ") << endl;
+		cout << "4. Album with largest number of tracks" << endl;
+		cout << collect.albumWithMostTracks() << endl;
 //Sort out seconds distribution because it prints a mess.
 //IF TIME PERMITS : 
 //Also try to get rid of the " " spaces before and after strings. IF TIME PERMITS.
