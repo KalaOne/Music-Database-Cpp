@@ -52,7 +52,7 @@ public:
 	{
 		return albumTitle;
 	}
-//Nick said that sizeof() returns the number of bytes of parameter
+
 	inline Duration getTotalDuration()
 	{
 		for(int i = 0; i < album.size(); i++)
@@ -63,6 +63,8 @@ public:
 	}
 	//less than operator overload - used for sorting function
 	// will sort in ascending Artist -> Album
+
+	
 	bool operator<(const Album& a) const
 	{
 		if(artistName.compare(a.getArtistName())< 0)

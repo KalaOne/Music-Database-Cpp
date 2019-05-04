@@ -21,6 +21,32 @@ public:
 		return collection;
 	}
 
+	Collection()
+	{
+		vector<Album*> collect;
+	}
+	//Rule of three:
+	//Copy assignment
+	Collection& operator=(const vector<Album*> col)
+	{
+		collection = col;
+		return *this;
+	}
+	//Copy constructor
+	Collection(const vector<Album*>& col)
+	{
+		vector<Album*> copy = col;
+	}
+	//Destructor
+	~Collection()
+	{
+		for(Album* a : collection)
+		{
+			delete a;
+		}
+		collection.clear();
+	}
+
 	friend istream& operator>>(istream& in, Collection& c);
 	Duration getArtistTotalDuration(const string& artist);
 	string albumWithMostTracks() const;
