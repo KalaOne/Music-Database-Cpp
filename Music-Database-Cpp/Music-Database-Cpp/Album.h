@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "Track.h"
+#include "algorithm"
 
 class Album
 {
@@ -11,6 +12,7 @@ private:
 	string albumTitle;
 	Duration albumDuration;
 	vector<Track> album;
+	
 
 public:
 	Album()
@@ -81,6 +83,8 @@ public:
 				return false;
 		}
 	}
+
+
 	friend istream& operator>> (istream& instr, Album &a);
 };
 

@@ -7,9 +7,9 @@ Duration Collection::getArtistTotalDuration(const string& artist)
 	int totalSeconds = 0;
 	for(int i = 0; i < collection.size();i++)
 	{
-		if(collection[i].getArtistName().compare(artist) == 0)
+		if(collection[i]->getArtistName().compare(artist) == 0)
 		{
-			totalSeconds += collection[i].getTotalDuration();
+			totalSeconds += collection[i]->getTotalDuration();
 		}
 	}
 	Duration totalTime = Duration(totalSeconds);
@@ -22,9 +22,9 @@ string Collection::albumWithMostTracks() const
 	Album album;
 	for (int i = 0; i < collection.size(); i++)
 	{
-		if (collection[i].getAllTracksVector().size() > trackNum){			
-			trackNum = collection[i].getAllTracksVector().size();
-			album = collection[i];
+		if (collection[i]->getAllTracksVector().size() > trackNum){			
+			trackNum = collection[i]->getAllTracksVector().size();
+			album = *collection[i];
 		}
 	}
 	return album.getAlbumInfo();
@@ -37,10 +37,10 @@ string Collection::longestTrackInfo() const
 	int minimum = -1;
 	Track longestTrack;
 	//loop through albums in collection
-	for(Album alb : collection)
+	for(Album* alb : collection)
 	{
 		//loop through tracks in each album
-		for(Track thisTrack : alb.getAllTracksVector())
+		for(Track thisTrack : alb->getAllTracksVector())
 		{
 			if(thisTrack.getDuration() > minimum)
 			{
@@ -59,10 +59,10 @@ string operator+(const string& cs, const Duration& rhs)
 
 ostream& operator<<(ostream& os, Collection &c)
 {
-	vector<Album> v = c.getCollectionVector();
-	for (vector<Album>::iterator it = v.begin(); it != v.end(); it++)
+	vector<Album*> v = c.getCollectionVector();
+	for (vector<Album*>::iterator it = v.begin(); it != v.end(); it++)
 	{
-		os << *it << endl;
+		os << **it << endl;
 	}
 
 	return os;
@@ -70,11 +70,11 @@ ostream& operator<<(ostream& os, Collection &c)
 
 istream& operator>>(istream& in, Collection& c)
 {
-	Album album;
-	//Specify how its read from the file.
 	while(!in.eof())
 	{
-		in >> album;
+		Album* album = new Album;
+		//reads in to the pointed album
+		in >> *album;
 		c.addAlbumToCollection(album);
 		if (in.eof())
 		{

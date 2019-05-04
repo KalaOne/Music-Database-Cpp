@@ -9,14 +9,14 @@ using namespace std;
 class Collection
 {
 private:
-	vector<Album> collection;
+	vector<Album*> collection;
 public:
-	inline void addAlbumToCollection(const Album &a)
+	inline void addAlbumToCollection(Album* a)
 	{
 		collection.push_back(a);
 	}
 
-	inline vector<Album>& getCollectionVector()
+	inline vector<Album*>& getCollectionVector()
 	{
 		return collection;
 	}
